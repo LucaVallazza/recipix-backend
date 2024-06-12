@@ -1,0 +1,13 @@
+@id=408d8547-1b15-4150-811f-fbc0991cca1d
+
+PUT http://localhost:5138/recipes/{{id}}
+Content-Type: application/json
+
+{
+  "Name": "Spaghetti Carbonara",
+  "Description": "Classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.",
+  "StartDateTime": "2024-06-01T18:00:00",
+  "EndDateTime": "2024-06-01T20:00:00",
+  "Ingredients": ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese", "Black Pepper"],
+  "Savory": ["Italian", "Pasta"]
+}

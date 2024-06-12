@@ -1,0 +1,11 @@
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\bin\Debug\net8.0\Recipix.Contracts.deps.json
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\bin\Debug\net8.0\Recipix.Contracts.dll
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\bin\Debug\net8.0\Recipix.Contracts.pdb
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\Recipix.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\Recipix.Contracts.AssemblyInfoInputs.cache
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\Recipix.Contracts.AssemblyInfo.cs
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\Recipix.Contracts.csproj.CoreCompileInputs.cache
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\Recipix.Contracts.dll
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\refint\Recipix.Contracts.dll
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\Recipix.Contracts.pdb
+F:\Software\Projects\.net-api-crud\Recipix\Recipix.Contracts\obj\Debug\net8.0\ref\Recipix.Contracts.dll

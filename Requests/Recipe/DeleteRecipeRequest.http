@@ -1,0 +1,5 @@
+@id=3b2dc9a5-60af-4355-8efb-51991bf2b110
+
+DELETE http://localhost:5138/recipes/{{id}}
+
+

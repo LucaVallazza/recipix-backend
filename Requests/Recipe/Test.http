@@ -1,0 +1,52 @@
+POST http://localhost:5138/recipes
+Content-Type: application/json
+
+
+{
+  "name": "Spaghetti Carbonara",
+  "Description": "Classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.",
+  "startDateTime": "2024-06-01T18:00:00",
+  "endDateTime": "2024-06-01T20:00:00",
+  "ingredients": ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese", "Black Pepper"],
+  "savory": ["Italian", "Pasta"]
+}
+
+
+###
+
+POST http://localhost:5138/recipes
+Content-Type: application/json
+
+{
+  "Name": "Chicken Tikka Masala",
+  "Description": "A popular Indian dish with marinated chicken in a creamy tomato sauce.",
+  "StartDateTime": "2024-06-02T19:00:00",
+  "EndDateTime": "2024-06-02T21:00:00",
+  "Ingredients": ["Chicken", "Yogurt", "Tomatoes", "Spices", "Cream"],
+  "Savory": ["Indian", "Chicken"]
+}
+
+@id1=5417058a-ff4b-491b-9c41-ab177aad7838
+@id2=4fc49ba0-7e24-4d35-b9c7-b600d374e62
+
+###
+GET http://localhost:5138/recipes/{{id1}}
+
+###
+
+PUT http://localhost:5138/recipes/{{id1}}
+Content-Type: application/json
+
+{
+  "Name": "Spaghetti Carbonata",
+  "Description": "Classic Romanian pasta dish with cucumbers, cheese, onions, and black pepper.",
+  "StartDateTime": "2024-06-01T18:00:00",
+  "EndDateTime": "2024-06-01T20:00:00",
+  "Ingredients": ["Cucumbers", "Eggs", "Onions", "Parmesan Cheese", "Black Pepper"],
+  "Savory": ["Italian", "Pasta"]
+}
+
+###
+DELETE http://localhost:5138/recipes/{{id1}}
+
+
