@@ -34,12 +34,14 @@ public class RecipesController : ControllerBase
             request.Savory
         );
 
-        if(requestRecipeResult.IsError){
-            
+        if (requestRecipeResult.IsError)
+        {
+            return Problem(requestRecipeResult.Errors[0].Description);
         }
 
         // Use the service to create a new recipe and pass the recipe received from the client
 
+        var recipe = requestRecipeResult.Value;
         ErrorOr<Created> createRecipeResult = _recipeService.CreateRecipe(recipe);
 
         if (createRecipeResult.IsError)
@@ -62,7 +64,7 @@ public class RecipesController : ControllerBase
         ErrorOr<Recipe> getRecipeResult = _recipeService.GetRecipe(id);
 
         return getRecipeResult.Match(
-            (recipe) =>  Ok(MapRecipeResponse(recipe)),
+            (recipe) => Ok(MapRecipeResponse(recipe)),
             errors => Problem(errors[0].Description));
 
         // if(getRecipeResult.IsError && getRecipeResult.FirstError == Errors.Recipe.NotFound ){
@@ -84,27 +86,33 @@ public class RecipesController : ControllerBase
     [HttpPut("{id:guid}")]
     public IActionResult UpsertRecipe(Guid id, UpsertRecipeRequest request)
     {
-        var recipe = new Recipe(
-        id,
+        var requestRecipeResult = Recipe.Create(
         request.Name,
         request.Description,
         request.StartDateTime,
         request.EndDateTime,
-        DateTime.Now,
         request.Ingredients,
-        request.Savory
+        request.Savory,
+        id
     );
 
-        ErrorOr<UpsertedRecipe> upsertRecipeResult =  _recipeService.UpsertRecipe(recipe);
+        if (requestRecipeResult.IsError)
+        {
+            return Problem(requestRecipeResult.Errors[0].Description);
+        }
+
+        var recipe = requestRecipeResult.Value;
+
+        ErrorOr<UpsertedRecipe> upsertRecipeResult = _recipeService.UpsertRecipe(recipe);
 
 
 
         return upsertRecipeResult.Match(
-            upserted =>(IActionResult) (upserted.isNewlyCreated ? 
-            CreatedAtGetRecipe(recipe) : 
-            NoContent()) , 
-            
-            errors => Problem(errors[0].Description)  
+            upserted => (IActionResult)(upserted.isNewlyCreated ?
+            CreatedAtGetRecipe(recipe) :
+            NoContent()),
+
+            errors => Problem(errors[0].Description)
             );
 
 
@@ -125,15 +133,17 @@ public class RecipesController : ControllerBase
 
         return deleteRecipeResult.Match(
             deleted => NoContent(),
-            errors => {
+            errors =>
+            {
                 Console.WriteLine(errors);
-                return (IActionResult) Problem(errors[0].Description);
-                }
+                return (IActionResult)Problem(errors[0].Description);
+            }
         );
     }
 
-    private static RecipeResponse MapRecipeResponse(Recipe recipe){
-        return  new RecipeResponse(
+    private static RecipeResponse MapRecipeResponse(Recipe recipe)
+    {
+        return new RecipeResponse(
           Id: recipe.Id,
           Name: recipe.Name,
           recipe.Description,

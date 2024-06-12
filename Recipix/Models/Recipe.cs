@@ -43,7 +43,15 @@ public class Recipe
         Savory = savory;
     }
 
-    public static ErrorOr<Recipe> Create(string name, string description, DateTime end, DateTime start, List<string> ingredients, List<string> savory)
+    public static ErrorOr<Recipe> Create(
+        string name,
+        string description,
+        DateTime end, 
+        DateTime start, 
+        List<string> ingredients, 
+        List<string> savory,
+        Guid? id = null
+        )
     {
 
         List<Error> errors = new List<Error>();
@@ -64,6 +72,7 @@ public class Recipe
 
         var recipe = new Recipe(
         Guid.NewGuid(),
+                id ?? Guid.NewGuid,
                 name,
                 description,
                 end,
@@ -72,6 +81,8 @@ public class Recipe
                 ingredients,
                 savory
         );
+
+        return recipe;
 
 
     }
